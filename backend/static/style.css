@@ -1,0 +1,124 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background:#333 ;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    width: 500px;
+    /* min-width: 400px; */
+    /* min-height: 400px; */
+    background: rgb(211, 170, 37);
+    box-shadow:inset 0 0 10px #fff, 0 10px 50px rgb(184, 141, 0);
+    /* border: 1px solid #fff; */
+    border-radius: 20px;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+form .heading{
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 900;
+    word-spacing: 4px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 6px rgb(211, 170, 37);
+    border: 2px solid rgb(211, 170, 37);
+    background: #fff;
+    color: rgb(211, 170, 37);
+}
+form > div{
+    width: 70%;
+    margin: 20px 0;
+}
+form .input{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    /* border: 1px solid red; */
+}
+form .input label{
+    padding: 5px 0;
+    margin-top: 10px;
+    color: #fff;
+    font-weight: 600;
+    text-shadow:  0 0 2px rgba(0, 0, 0, 0.678);
+    cursor: pointer;
+}
+form .input input,form select,  textarea{
+    outline: none;
+    position: relative;
+    width: 100%;
+    border: 1px solid rgb(184, 141, 0);
+    color: rgb(184, 141, 0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.363);
+    padding: 7px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* form .input input[name="username"]{
+    text-transform: uppercase;
+} */
+form button{
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid rgb(184, 141, 0);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.425);
+    transition: .1s;
+    text-transform: uppercase;
+    color: rgb(184, 141, 0);
+}
+form button:hover{
+    transform: scale(1.05);
+}
+form button:active{
+    transform: scale(1);
+}
+.processed{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.processed .anyac{
+    border-bottom: 1px solid #444;
+    cursor: pointer;
+    color:#444;
+    padding: 0 5px;
+    transition: .3s;
+}
+.processed .anyac a{
+    color:#444;
+    text-decoration: none;
+}
+.processed .anyac a:visited{
+    color:#444;
+}
+.processed .anyac a:visited:hover{
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
+.processed .anyac:hover{
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}

@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'problemform.css' %}">
+    <title>Add a Problem</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <form action="/problemform" method="post">
+        <div class="heading">New Problem</div>
+        <div class="form">
+            <div class="input">
+                <label for="company">Company  <span style="color: #fd002e;">*</span></label>
+                <select type="text"  aria-required="true" name="company" id="company">
+                    <option selected style="color: #979797;" value="normal">Normal</option>
+                    {% for name in company %}
+                    <option style="color: #00AF9B;" value="normal">{{name}}</option>
+                    {% endfor %}
+                </select>
+                <div class="addbtn">
+                    <input type="text" id="newcompany" placeholder="Enter New Company" style="min-width: 100px; display: none;">
+                    <span id="addnewcompany">+</span>
+                </div>
+            </div>
+            <div class="input">
+                <label for="title">Problem Title <span style="color: #fd002e;">*</span></label>
+                <input type="text" required placeholder="Enter Problem Title" name="title" id="title">
+            </div>
+            <div class="input">
+                <label for="description">Problem Description <span style="color: #fd002e;">*</span></label>
+                <textarea name="description" required id="description" placeholder="Enter Problem Description" cols="100" rows="10"></textarea>
+                <!-- <input type="text" placeholder="Enter problem description" name="description" id="description"> -->
+            </div>
+            <div class="input">
+                <label for="solution">Problem Solution</label>
+                <textarea name="solution" id="solution" placeholder="Enter Problem Solution" cols="100" rows="10"></textarea>
+                <!-- <input type="text" placeholder="Enter problem solution" name="solution" id="solution"> -->
+            </div>
+            <div class="input">
+                <label for="difficulty">Problem Difficulty</label>
+                <select name="difficulty" aria-required="true"  id="difficulty">
+                    <option selected style="color: #00AF9B;" value="easy">Easy</option>
+                    <option style="color: #FFB800;" value="medium">Medium</option>
+                    <option style="color: #FF2D55;" value="hard">Hard</option>
+                </select>
+            </div>
+            <div class="input">
+                <!-- <div class="anyac"><a href="/signup">I don't have account</a></div> -->
+                <button>Save This Problem</button>
+            </div>
+            
+        </div>
+        
+    </form>
+    <script>
+        addnewcompany.addEventListener('click',()=>{
+            if (newcompany.style.display == 'none'){
+                newcompany.style.display = 'inline-block'
+            }
+            else if(newcompany.value == ''){
+                newcompany.style.display = 'none'
+            }
+            else{
+                window.location.href = `/newcompany/${newcompany.value}/`
+            }
+        })
+    </script>
+</body>
+
+</html>

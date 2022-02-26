@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>SignUp Admin</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <form {% if update %} action="profileupdate" {% else %} action="/signup" {% endif %} method="post">
+        <div class="heading">leetCode  {% if not update %} Administration {% else %} Profile {% endif %} </div>
+        <div>
+            {% if not update %}
+            <div class="input">
+                <label for="username">Create Username</label>
+                <input type="text" value="{{username}}" placeholder="Create your username" name="username" id="username">
+            </div>
+            {% endif %}
+            <div class="input">
+                <label for="fullname">Enter your Full Name</label>
+                <input type="text" value="{{fullname}}" placeholder="Enter your Full Name" name="fullname" id="fullname">
+            </div>
+            <div class="input">
+                <label for="mobile">Enter your mobile number</label>
+                <input type="tel" value="{{mobile}}" placeholder="Enter your mobile number" name="mobile" id="mobile">
+            </div>
+
+            <div class="input">
+                <label for="email">Enter Your Email</label>
+                <input type="email" value="{{email}}" placeholder="Enter your email" name="email" id="email">
+            </div>
+            {% if not update %}
+            <div class="input">
+                <label for="confpassword">Create Password</label>
+                <input type="password" placeholder="Create your password" name="password" id="confpassword">
+            </div>
+            {% endif %}
+        </div>
+        <div class="processed">
+            {% if not update %}
+            <div class="anyac"><a href="/login">I already have an account</a></div>
+            <button>Register</button>
+            {% else %}
+            <button>Update Profile</button>
+            {% endif %}
+        </div>
+    </form>
+</body>
+
+</html>
